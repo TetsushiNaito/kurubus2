@@ -1,0 +1,1 @@
+2021 &copy; Pherkad Gamma
