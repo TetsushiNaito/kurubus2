@@ -15,15 +15,23 @@ function prepareTimetable ( $handle, $route_candidates, $day='' ) {
         if ( is_string( $results ) ) { continue; }
         // 曜日によってデータを分ける
         foreach( $results as $result ) {
-            if ( preg_match( '/Weekday/', $result->$odptcalendar, $array ) ) {
-                $Weekday[] = $result; 
-            }
-            elseif ( preg_match( '/Saturday/', $result->$odptcalendar, $array ) ) {
+            if ( preg_match( '/Saturday/', $result->$odptcalendar, $array ) ) {
                 $Saturday[] = $result;
+                continue;
             }
             elseif ( preg_match( '/Holiday/', $result->$odptcalendar, $array ) ) {
                 $Holiday[] = $result;
+                continue;
             }
+            elseif ( preg_match( '/Weekday/', $result->$odptcalendar, $array ) ) {
+                $Weekday[] = $result; 
+                continue;
+            }
+            else {
+                //$Weekday[] = $result;
+                continue;
+            }
+
         }
     } 
     //今日は平日か土曜か日祝日か確認して、どの時刻表を使うか決める
