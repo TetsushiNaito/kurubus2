@@ -3,6 +3,7 @@
 @section( 'title', 'Confirm')
 
 @section( 'content' )
+@csrf
 @if ( $depr_pole && $dest_pole )
 <table class="table table-borderless">
     <tr>
