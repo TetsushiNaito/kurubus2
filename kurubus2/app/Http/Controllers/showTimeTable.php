@@ -61,7 +61,10 @@ class showTimeTable {
         //検索した各路線から目的地がある路線を選択する
         [ $deprpole_owl, $destpole_owl, $route_candidates ] = retrieveRoutePattern( $ch, $routepattern, $deprpoles, $destpoles );
         
-                //時刻表が無かった場合は -1 を返す
+        //路線が見つからなかった場合は -1 を返す
+        if ( $deprpole_owl == -1 ) { return -1; }
+
+        //時刻表が無かった場合は -1 を返す
         if ( gettype( $route_candidates) != 'array' ) {
             return -1;
         }
