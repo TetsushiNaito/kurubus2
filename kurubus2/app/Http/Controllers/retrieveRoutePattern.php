@@ -38,6 +38,9 @@ function retrieveRoutePattern( $handle, $routepattern, $deprpoles, $destpoles ) 
 
         }
     }
+    if ( ! isset( $deprpole_owl ) ) {
+        return [-1, -1, [] ];
+    }
     $deprpole_owl = array_unique( $deprpole_owl );
     $destpole_owl = array_unique( $destpole_owl );
     return [ $deprpole_owl, $destpole_owl, $route_candidates ];
